@@ -591,7 +591,7 @@ class ROI(skrt.core.Archive):
             self.contours["x-y"] = {}
             for z, contours in self.input_contours.items():
                 self.contours["x-y"][z] = [
-                    [point[:2] for point in contour] for contour in contours
+                    np.array([point[:2] for point in contour], np.float32) for contour in contours
                 ]
             self.source_type = "contour"
             self.loaded = True
